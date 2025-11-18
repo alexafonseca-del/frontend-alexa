@@ -6,7 +6,7 @@ import Login from "./views/Login";
 import Inicio from "./views/Inicio";
 import Categorias from "./views/Categorias";
 import Productos from "./views/Productos";
-import Catalogo from "./views/Catalogo";
+import Catalogo from "./views/CatalogoProductos";
 import Ventas from "./views/Ventas";
 import Clientes from "./views/Clientes";
 import Empleados from "./views/Empleados";

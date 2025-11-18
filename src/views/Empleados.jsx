@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import TablaEmpleados from '../components/empleados/TablaEmpleados';
+import TablaEmpleados from "../components/empledos/TablaEmpleados";
 import CuadroBusquedas from '../components/busquedas/CuadroBusquedas';
-import ModalRegistroEmpleado from '../components/empleados/ModalRegistroEmpleado';
-import ModalEdicionEmpleado from '../components/empleados/ModalEdicionEmpleado';
-import ModalEliminacionEmpleado from '../components/empleados/ModalEliminacionEmpleado';
+import ModalRegistroEmpleado from "../components/empledos/ModalRegistroEmpleado";
+import ModalEdicionEmpleado from "../components/empledos/ModalEdicionEmpleado";
+import ModalEliminacionEmpleado from "../components/empledos/ModalEliminacionEmpleado";
 
 const Empleados = () => {
   const [empleados, setEmpleados] = useState([]);
