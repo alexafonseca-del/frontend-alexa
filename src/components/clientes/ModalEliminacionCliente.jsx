@@ -1,9 +1,9 @@
 import { Modal, Button } from "react-bootstrap";
 
-const ModalEliminacionUsuario = ({
+const ModalEliminacionCliente = ({
   mostrar,
   setMostrar,
-  usuario,
+  cliente,
   confirmarEliminacion,
 }) => {
   return (
@@ -13,9 +13,9 @@ const ModalEliminacionUsuario = ({
       </Modal.Header>
       <Modal.Body>
         <p>
-          ¿Estás seguro de que deseas eliminar el usuario{" "}
+          ¿Estás seguro de que deseas eliminar el cliente{" "}
           <strong>
-            "{usuario?.usuario || "este usuario"}"
+            "{cliente?.primer_nombre || "este cliente"}"
           </strong>?
         </p>
         <p className="text-muted small">
@@ -29,7 +29,7 @@ const ModalEliminacionUsuario = ({
         <Button
           variant="danger"
           onClick={confirmarEliminacion}
-          aria-label="Confirmar eliminación de usuario"
+          aria-label="Confirmar eliminación del cliente"
         >
           Eliminar
         </Button>
@@ -38,4 +38,4 @@ const ModalEliminacionUsuario = ({
   );
 };
 
-export default ModalEliminacionUsuario;
+export default ModalEliminacionCliente;

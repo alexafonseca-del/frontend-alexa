@@ -1,4 +1,4 @@
-import { Modal, Form, Button } from "react-bootstrap";
+import { Modal, Form, Button, Row, Col } from "react-bootstrap";
 
 const ModalEdicionUsuario = ({
   mostrar,
@@ -22,38 +22,39 @@ const ModalEdicionUsuario = ({
       <Modal.Header closeButton>
         <Modal.Title>Editar Usuario</Modal.Title>
       </Modal.Header>
-
       <Modal.Body>
         <Form>
-          <Form.Group className="mb-3" controlId="usuario">
-            <Form.Label>Nombre de Usuario</Form.Label>
-            <Form.Control
-              type="text"
-              name="usuario"
-              value={usuarioEditado?.usuario || ""}
-              onChange={manejarCambio}
-              placeholder="Ej: eli"
-              maxLength={20}
-              required
-              autoFocus
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="contraseña">
-            <Form.Label>Contraseña</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              name="contraseña"
-              value={usuarioEditado?.contraseña || ""}
-              onChange={manejarCambio}
-              placeholder="Descripción opcional (máx. 100 caracteres)"
-              maxLength={100}
-            />
-          </Form.Group>
+          <Row>
+            <Col md={6} className="mb-3">
+              <Form.Group controlId="usuario">
+                <Form.Label>Usuario</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="usuario"
+                  value={usuarioEditado?.usuario}
+                  onChange={manejarCambio}
+                  placeholder="Nombre del usuario"
+                  maxLength={100}
+                  required
+                  autoFocus
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mb-3">
+              <Form.Group controlId="contraseña">
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="contraseña"
+                  value={usuarioEditado?.contraseña}
+                  onChange={manejarCambio}
+                  placeholder="Contraseña"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
         </Form>
       </Modal.Body>
-
       <Modal.Footer>
         <Button variant="secondary" onClick={() => setMostrar(false)}>
           Cancelar

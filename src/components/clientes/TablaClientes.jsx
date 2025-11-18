@@ -1,8 +1,17 @@
-import {Table, Spinner} from "react-bootstrap";
+import {Table, Spinner, Button} from "react-bootstrap";
 import BotonOrden from "../ordenamiento/BotonOrden";
 import { useState } from "react";
+import Paginacion
+ from "../ordenamiento/Paginacion";
 
-const TablaClientes = ({clientes, cargando}) => {
+const TablaClientes = ({clientes, 
+  cargando,
+  abrirModalEdicion,
+  abrirModalEliminacion,
+  totalElementos,
+  elementosPorPagina,
+  paginaActual,
+  establecerPaginaActual}) => {
 
   const [orden, setOrden] = useState({ campo: "id_cliente", direccion: "asc" });
 
@@ -82,12 +91,34 @@ const clientesOrdenados = [...clientes].sort((a, b) => {
               <td>{cliente.celular}</td>
               <td>{cliente.direccion}</td>
               <td>{cliente.cedula}</td>
-              <td>Acción</td>
+              <td>
+                <Button
+                  variant="outline-warning"
+                  size="sm"
+                  className="me-2"
+                  onClick={() => abrirModalEdicion(cliente)}
+                >
+                  <i className="bi bi-pencil"></i>
+                </Button>
+                <Button
+                  variant="outline-danger"
+                  size="sm"
+                  onClick={() => abrirModalEliminacion(cliente)}
+                >
+                  <i className="bi bi-trash"></i>
+                </Button>
+              </td>
             </tr>
           );
         })}
       </tbody>
     </Table>
+    <Paginacion
+      elementosPorPagina={elementosPorPagina}
+      totalElementos={totalElementos}
+      paginaActual={paginaActual}
+      establecerPaginaActual={establecerPaginaActual}
+      />
     </>
   );
 }
